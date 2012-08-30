@@ -416,6 +416,15 @@ img#messages
     text-decoration: none;
 }
 
+div#socialbuttons {
+	border-bottom: 1px dotted #eee;
+	padding: 0 0 3px 7px;
+	position: relative;
+	text-align: right;
+	top: -10px;
+	width: 100%;
+}
+
 #twitter
 {
     width: 37px;
