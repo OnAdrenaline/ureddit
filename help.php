@@ -81,6 +81,8 @@ We also provide both Ventrillo and Murmur voice chat servers with several channe
 
 We also suggest looking at the following options for making your class easier to manage:
 
+* [Lore](http://www.lore.com) is a great platform for hosting a class.
+* [SnapClass](http://snapclass.com) is another excellent platform for hosting a class.
 * Use [Doodle](http://www.doodle.com/) to find a mutually convenient time to hold your class
 * Host your class on [Google Groups](http://groups.google.com)
 * [Tokbox](http://www.tokbox.com/) is great for presentation-based curricula and gives you the ability to present PowerPoint or PDF slides that you have uploaded to [Slideshare](http://slideshare.net)
