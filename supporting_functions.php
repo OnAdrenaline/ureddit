@@ -137,7 +137,7 @@ class statuses:
           {
             ?>
             <div class="signup-button">
-	      <a onclick="$.get('<?=PREFIX ?>/enroll.php',{id: '<?=$class->id ?>'}, function(data) { $('#button<?=$class->id ?>').html(data) });">
+	      <a onclick="$.get('<?=PREFIX ?>/enroll.php',{id: '<?=$class->id ?>'}, function(data) { $('#button<?=$class->id ?>').html(data) });_gaq.push(['_trackEvent', 'Enrollment', 'Add', '<?=$class->id ?>']);">
 	      <button class="button-add">
 	      +add
 	      </button>
@@ -189,7 +189,7 @@ class statuses:
     {
       ?>
   <div class="signup-button">
-    <a onclick="$.get('<?=PREFIX ?>/drop_class.php',{id: '<?=$class->id ?>'}, function(data) { $('#button<?=$class->id ?>').html(data) });" class="link-signup-button">
+    <a onclick="$.get('<?=PREFIX ?>/drop_class.php',{id: '<?=$class->id ?>'}, function(data) { $('#button<?=$class->id ?>').html(data) }); _gaq.push(['_trackEvent', 'Enrollment', 'Drop', '<?=$class->id ?>']);" class="link-signup-button">
     <button class="button-added">
     enrolled
     </button>
@@ -274,7 +274,14 @@ function list_teacher_classes($user)
   $categories = array();
   foreach($user->teaching as $class_id)
     {
-      $class = new course($user->dbpdo, $class_id);
+      try
+	{
+	  $class = new course($user->dbpdo, $class_id);
+	}
+      catch(CourseNotFoundException $e)
+	{
+	  continue;
+	}
       $class->get_categories();
       foreach($class->categories as $category_id)
 	$categories[$category_id][] = $class;
